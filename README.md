@@ -1,25 +1,14 @@
-# Coding Assignment Backend
+# Sports Booking Dashboard + Backend API
 
-This project is a backend API built as part of a coding assignment.
+- Frontend: Next.js Dashboard
+- Backend: Serverless API
+- Database: Supabase (not required to show UI)
+- Deployment: Vercel
 
-## Tech Stack
-- Node.js
-- Express.js
-- PostgreSQL
+Use:
+https://your-domain.vercel.app/
+to view dashboard.
 
-## Features
-- Stores venues, members, bookings, and transactions
-- Fetches bookings with venue and member details
-- Calculates total revenue from successful transactions
-
-## API Endpoints
-- GET /venues
-- GET /bookings
-- GET /revenue
-
-## Database
-PostgreSQL with relational tables:
-- venues
-- members
-- bookings
-- transactions
+Use:
+https://your-domain.vercel.app/api
+to view backend API JSON.
