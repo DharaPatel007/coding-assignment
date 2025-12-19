@@ -1,67 +1,35 @@
+import { useEffect, useState } from "react";
+
 export default function Dashboard() {
+  const [venues, setVenues] = useState([]);
+  const [members, setMembers] = useState([]);
+  const [bookings, setBookings] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/venues").then(r => r.json()).then(d => setVenues(d.data));
+    fetch("/api/members").then(r => r.json()).then(d => setMembers(d.data));
+    fetch("/api/bookings").then(r => r.json()).then(d => setBookings(d.data));
+    fetch("/api/transactions").then(r => r.json()).then(d => setTransactions(d.data));
+  }, []);
+
   return (
-    <div style={{ 
-      fontFamily: "Arial, sans-serif", 
-      padding: "40px", 
-      background: "#f5f5f5", 
-      minHeight: "100vh" 
-    }}>
-      
-      <h1 style={{ color: "#333", marginBottom: "10px" }}>
-        Sports Booking Dashboard
-      </h1>
+    <div style={{ fontFamily: "Arial", padding: 20 }}>
 
-      <p style={{ marginBottom: "30px" }}>
-        Welcome! Your backend API is deployed and running successfully.
-      </p>
+      <h1>Supabase Sports Dashboard</h1>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "20px"
-      }}>
+      <h2>Venues</h2>
+      <pre>{JSON.stringify(venues, null, 2)}</pre>
 
-        <div style={cardStyle}>
-          <h3>Total Revenue</h3>
-          <h2>₹2,750.00</h2>
-        </div>
+      <h2>Members</h2>
+      <pre>{JSON.stringify(members, null, 2)}</pre>
 
-        <div style={cardStyle}>
-          <h3>Bookings</h3>
-          <h2>8</h2>
-        </div>
+      <h2>Bookings</h2>
+      <pre>{JSON.stringify(bookings, null, 2)}</pre>
 
-        <div style={cardStyle}>
-          <h3>Active Members</h3>
-          <h2>5</h2>
-        </div>
-
-      </div>
-
-      <br/>
-
-      <a 
-        href="/api" 
-        style={{
-          padding: "10px 25px",
-          background: "#000",
-          color: "#fff",
-          borderRadius: "5px",
-          textDecoration: "none",
-          marginTop: "40px",
-          display: "inline-block"
-        }}>
-        View API JSON
-      </a>
+      <h2>Transactions</h2>
+      <pre>{JSON.stringify(transactions, null, 2)}</pre>
 
     </div>
   );
 }
-
-const cardStyle = {
-  background: "#fff",
-  padding: "20px",
-  borderRadius: "8px",
-  textAlign: "center",
-  boxShadow: "0px 0px 6px rgba(0,0,0,0.1)"
-};

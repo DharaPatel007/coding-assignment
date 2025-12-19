@@ -1,5 +1,5 @@
 {
-  "name": "coding-assignment-dashboard",
+  "name": "coding-assignment",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@supabase/supabase-js": "latest"
   }
 }
